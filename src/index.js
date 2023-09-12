@@ -7,12 +7,15 @@ import {Shopping} from "./Pages/Shopping";
 import {Login} from "./Pages/Login";
 import {Register} from "./Pages/Register";
 import {Cart} from "./Pages/Cart";
+import NavBar from './components/NavBar';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
+        <NavBar/>
         <Routes> 
-            <Route path="/home" element={<App/>} />
+            <Route path="/" element={<App/>} />
             <Route path="/shopping" element={<Shopping/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>} />

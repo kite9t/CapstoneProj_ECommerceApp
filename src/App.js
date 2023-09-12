@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import React from "react";
-//import {NavBar} from "./components/NavBar/index";
-//import {Navbar} from "./components/NavBar/NavBar";
+//import NavBar from './components/NavBar';
+//import Navbar from './components/NavBar/NavBar';
 
 function App() {
   return (
