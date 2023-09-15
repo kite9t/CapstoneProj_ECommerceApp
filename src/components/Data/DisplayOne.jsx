@@ -1,25 +1,35 @@
+import { useState, useEffect } from 'react';
 const axios = require('axios');
-import {useState,useEffect} from 'react';
-const BASEURL = "https://fakestoreapi.com/products/";
-const [product,setProduct]=useState([]);
 
-function DisplayOne(){
-useEffect(()={
+function DisplayOne() {
+    const BASEURL = "https://fakestoreapi.com/products/";
+    const [product, setProduct] = useState([]);
 
-    async function getProduct(URL){
-        try{ 
-            const res = await axios.get(`${BASEURL}`)
-            const {data} = res
-            console.log(data)
-            setProduct(data.results)
-            
-            
-        }catch(error){
-            console.error(error);
+    useEffect(() => {
+        async function getProduct(URL) {
+            try {
+                const res = await axios.get(`${URL}`)
+                const { data } = res
+                setProduct(data)
+
+            } catch (error) {
+                console.error(error);
+            }
         }
-    }
-    
-    getProduct(BASEURL);
-})}
+    }, [])
+
+    console.log({ product });
+
+    return (
+        <div>
+            <h3>Display One Product</h3>
+            <ul>
+                {product.map((product) => <p key={product.id} >{product.title}</p>)}
+            </ul>
+
+        </div>
+
+    )
+}
 
 export default DisplayOne;
